@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B4F9C525-5C56-440E-B4C2-972A33D7C8CD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ControlActividades</RootNamespace>
+    <AssemblyName>ControlActividades</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AegisClient">
+      <HintPath>..\packages\AegisClient.0.3.0\lib\net40\AegisClient.dll</HintPath>
+    </Reference>
+    <Reference Include="clrzmq">
+      <HintPath>..\packages\clrzmq.2.2.3\lib\clrzmq.dll</HintPath>
+    </Reference>
+    <Reference Include="clrzmq-ext">
+      <HintPath>..\packages\clrzmq.2.2.3\lib\clrzmq-ext.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Nancy, Version=0.22.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Nancy.0.22.2\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Authentication.Stateless">
+      <HintPath>..\packages\Nancy.Authentication.Stateless.0.22.2\lib\net40\Nancy.Authentication.Stateless.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Hosting.Aspnet, Version=0.22.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Nancy.Hosting.Aspnet.0.22.2\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor, Version=0.21.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.21.1\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\packages\protobuf-net.2.0.0.480\lib\net40\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Razor.Unofficial">
+      <HintPath>..\packages\System.Web.Razor.Unofficial.2.0.2\lib\net40\System.Web.Razor.Unofficial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\fullcalendar.css" />
+    <Content Include="Content\css\fullcalendar.print.css" />
+    <Content Include="Content\css\jquery-ui.min.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\img\glyphicons-halflings.png" />
+    <Content Include="Content\img\jqueryUI\animated-overlay.gif" />
+    <Content Include="Content\img\jqueryUI\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="Content\img\jqueryUI\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="Content\img\jqueryUI\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="Content\img\jqueryUI\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="Content\img\jqueryUI\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="Content\img\jqueryUI\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="Content\img\jqueryUI\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="Content\img\jqueryUI\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="Content\img\jqueryUI\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="Content\img\jqueryUI\ui-icons_2694e8_256x240.png" />
+    <Content Include="Content\img\jqueryUI\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\img\jqueryUI\ui-icons_3d80b3_256x240.png" />
+    <Content Include="Content\img\jqueryUI\ui-icons_72a7cf_256x240.png" />
+    <Content Include="Content\img\jqueryUI\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\js\libs\backbone.js" />
+    <Content Include="Content\js\libs\handlebars-v1.3.0.js" />
+    <Content Include="Content\js\index.js" />
+    <Content Include="Content\js\libs\backbone-min.js" />
+    <Content Include="Content\js\libs\bootstrap.js" />
+    <Content Include="Content\js\libs\bootstrap.min.js" />
+    <Content Include="Content\js\libs\fullcalendar.min.js" />
+    <Content Include="Content\js\libs\gcal.js" />
+    <Content Include="Content\js\libs\jquery-ui.custom.min.js" />
+    <Content Include="Content\js\libs\jquery.min.js" />
+    <Content Include="Content\js\libs\lang\all.js" />
+    <Content Include="Content\js\libs\lang\ar-ma.js" />
+    <Content Include="Content\js\libs\lang\ar.js" />
+    <Content Include="Content\js\libs\lang\bg.js" />
+    <Content Include="Content\js\libs\lang\ca.js" />
+    <Content Include="Content\js\libs\lang\cs.js" />
+    <Content Include="Content\js\libs\lang\da.js" />
+    <Content Include="Content\js\libs\lang\de.js" />
+    <Content Include="Content\js\libs\lang\el.js" />
+    <Content Include="Content\js\libs\lang\en-au.js" />
+    <Content Include="Content\js\libs\lang\en-ca.js" />
+    <Content Include="Content\js\libs\lang\en-gb.js" />
+    <Content Include="Content\js\libs\lang\es.js" />
+    <Content Include="Content\js\libs\lang\fa.js" />
+    <Content Include="Content\js\libs\lang\fi.js" />
+    <Content Include="Content\js\libs\lang\fr-ca.js" />
+    <Content Include="Content\js\libs\lang\fr.js" />
+    <Content Include="Content\js\libs\lang\hi.js" />
+    <Content Include="Content\js\libs\lang\hr.js" />
+    <Content Include="Content\js\libs\lang\hu.js" />
+    <Content Include="Content\js\libs\lang\it.js" />
+    <Content Include="Content\js\libs\lang\ja.js" />
+    <Content Include="Content\js\libs\lang\ko.js" />
+    <Content Include="Content\js\libs\lang\lt.js" />
+    <Content Include="Content\js\libs\lang\lv.js" />
+    <Content Include="Content\js\libs\lang\nl.js" />
+    <Content Include="Content\js\libs\lang\pl.js" />
+    <Content Include="Content\js\libs\lang\pt-br.js" />
+    <Content Include="Content\js\libs\lang\pt.js" />
+    <Content Include="Content\js\libs\lang\ro.js" />
+    <Content Include="Content\js\libs\lang\ru.js" />
+    <Content Include="Content\js\libs\lang\sk.js" />
+    <Content Include="Content\js\libs\lang\sl.js" />
+    <Content Include="Content\js\libs\lang\sv.js" />
+    <Content Include="Content\js\libs\lang\th.js" />
+    <Content Include="Content\js\libs\lang\tr.js" />
+    <Content Include="Content\js\libs\lang\uk.js" />
+    <Content Include="Content\js\libs\lang\zh-cn.js" />
+    <Content Include="Content\js\libs\lang\zh-tw.js" />
+    <Content Include="Content\js\libs\moment.min.js" />
+    <Content Include="Content\js\libs\underscore-min.js" />
+    <Content Include="Content\js\libs\underscore.js" />
+    <Content Include="Content\nancy-logo.png" />
+    <Content Include="Content\js\libs\backbone-min.map" />
+    <Content Include="Content\js\libs\underscore-min.map" />
+    <None Include="libzmq.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Entities\ActividadCalendario.cs" />
+    <Compile Include="Entities\ComentarioActividad.cs" />
+    <Compile Include="Entities\FullcalendarEventObject.cs" />
+    <Compile Include="Modules\IndexModule.cs" />
+    <Compile Include="Modules\RestAPIModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\SystemUser.cs" />
+    <Compile Include="Security\UsersVault.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Views\index.cshtml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes\" />
+    <Folder Include="Views\Home\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{75d006b4-8648-4293-b188-d85b6e4a9632}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{1e0ba5af-c89a-4073-95fb-dd8d24a7352c}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:12116/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.21.1\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.21.1\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

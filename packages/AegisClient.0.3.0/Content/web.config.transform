@@ -1,0 +1,7 @@
+<configuration>
+  <appSettings>
+    <add key="Port" value="5010"/>
+    <add key="Server" value="cot-cdc-dev02"/>
+    <add key="NombreAplicacion" value=""/>
+  </appSettings>
+</configuration>

@@ -1,0 +1,162 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+@{
+    Layout = "Views/Shared/Layout.cshtml";
+}
+@section Header{
+    <link href="@Url.Content("~/Content/css/fullcalendar.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/css/fullcalendar.print.css")" rel="stylesheet" media="print" />
+    <script src="@Url.Content("~/Content/js/libs/moment.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/libs/jquery-ui.custom.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/libs/fullcalendar.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/libs/lang/all.js")"></script>
+    <script src="@Url.Content("~/Content/js/libs/underscore-min.js")"></script>
+    <script src="@Url.Content("~/Content/js/libs/backbone-min.js")"></script>
+    <script src="@Url.Content("~/Content/js/libs/handlebars-v1.3.0.js")"></script>
+    <script src="@Url.Content("~/Content/js/index.js")"></script>
+    <script language="javascript">
+        var currentUrl = "@Url.Content("~/api/")";
+        var rootUrl="@Url.Content("~/")";
+    </script>
+}
+@section templates{
+    <script type="text/x-handlebars-template" id="TemplateCajaProyecto">
+        {{#each this}}
+        <li class="projectNode fc-event fc-event-hori fc-event-draggable fc-event-start fc-event-end" data-idproy="{{id}}">
+            <div class="fc-event-inner">
+                <span class="fc-event-title">{{nombre}}</span>
+            </div>
+        </li>
+        {{/each}}
+
+    </script>
+    <script type="text/x-handlebars-template" id="TemplateCajaProy">
+        <div class="fc-event-inner">
+            <a class="editIcon edit" ><i class="icon-pencil icon-white"></i></a>
+            
+            <span class="fc-event-title">{{nombre}}</span>
+        </div>
+    </script>
+    <script type="text/x-handlebars-template" id="TemplateProyectoDetalle">
+        <div class="well">
+            <form>
+                <label class="control-label" for="nombre_proyecto">Nombre del proyecto:</label>
+                <input type="text" class="input-xlarge" id="nombre_proyecto" placeholder="Nombre del proyecto" value="{{nombre}}">
+                <label class="control-label" for="tipoProyecto">Tipo de proyecto:</label>
+                <select id="tipoProyecto" class="input-xlarge">
+                    {{#select idTipoProyecto}}
+                    @foreach (Entidades.TipoProyecto objType in Model.ProjectTypes)
+                    {
+                        <option value="@objType.Id">@objType.Descripcion</option>
+                    }
+                    {{/select}}
+                </select>
+                <label class="control-label" for="estado">Estado:</label>
+                <select id="estado" class="input-xlarge">
+                    {{#select idEstado}}
+                    @foreach (Entidades.Estado objState in Model.ProjectStates)
+                    {
+                        <option value="@objState.Id">@objState.DescEstado</option>
+                    }
+                    {{/select}}
+                </select>
+                <label class="control-label" for="responsable">Scrum master/Responsable:</label>
+                <select id="responsable" class="input-xlarge">
+                    {{#select idResponsable}}
+                    @foreach (Entidades.Usuario user in Model.Users)
+                    {
+                        <option value="@user.InternalId">@user.FullName</option>
+                    }
+                    {{/select}}
+                </select>
+            </form>
+            <div class="form-actions">
+                <button type="button" class="btn btn-primary save">Guardar</button>
+                <button type="button" class="btn cancel">Cancelar</button>
+                <button type="button" class="btn btn-danger delete">Eliminar</button>
+            </div>
+        </div>
+    </script>
+    <script type="text/x-handlebars-template" id="TemplateHeader">
+        <button class="btn nuevo" role="button">Agregar</button>
+        @*<a id="agregar_proyecto" href="#modalProyecto" role="button" class="btn nuevo" data-toggle="modal">Agregar</a>*@
+    </script>
+}
+    Bienvenido: @Model.FullName
+    <div class="row">
+        <div class="span8">
+            <div id="calendar"></div>
+        </div>
+        <div class="span4">
+            <h2>Proyectos:</h2>
+            <div class="row">
+                <div class="span4" id="HeaderPanel">
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4" id="ProyContentPanel">
+                </div>
+            </div>
+            <div class="row">
+                <ul id="ProyectosPanel"></ul>
+            </div>
+        </div>
+    </div>
+    <div id="popups" style="z-index:1000;">
+    </div>
+    <div id="modalProyecto" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="tituloModal" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="tituloModal">Proyecto</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="nombre_proyecto">Nombre del proyecto:</label>
+                    <div class="controls">
+                        <input type="text" id="nombre_proyecto" placeholder="Nombre del proyecto">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="tipoProyecto">Tipo de proyecto:</label>
+                    <div class="controls">
+                        <select id="tipoProyecto">
+                            @foreach (Entidades.TipoProyecto objType in Model.ProjectTypes)
+                            {
+                            <option value="@objType.Id">@objType.Descripcion</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="estado">Estado:</label>
+                    <div class="controls">
+                        <select id="estado">
+                            @foreach (Entidades.Estado objState in Model.ProjectStates)
+                            {
+                            <option value="@objState.Id">@objState.DescEstado</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="responsable">Scrum master/Responsable:</label>
+                    <div class="controls">
+                        <select id="responsable">
+                            @foreach (Entidades.Usuario user in Model.Users)
+                            {
+                            <option value="@user.InternalId">@user.FullName</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+            <button class="btn btn-primary" id="guardar_proyecto">Guardar</button>
+        </div>
+    </div>
+
