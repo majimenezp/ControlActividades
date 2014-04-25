@@ -26,6 +26,7 @@ namespace Entidades
         public virtual Guid UserId { get; set; }
         public virtual string FullName { get; set; }
         public virtual string UsrName { get; set; }
+        public virtual string Area { get; set; }
         
     }
 }

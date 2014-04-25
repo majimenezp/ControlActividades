@@ -16,6 +16,7 @@ namespace Dominio.Mappings
             Id(x => x.Id).GeneratedBy.Identity();
             Map(x => x.Fecha).Not.Nullable();
             Map(x => x.Comentario).Length(3000).Nullable().Default("");
+            Map(x => x.Horas).Length(10).Default("").Nullable();
             References(x => x.Proyecto).Column("IdProyecto").Fetch.Join().Not.LazyLoad();
             References(x => x.Usuario).Column("IdUsuario").Fetch.Join().LazyLoad();
         }

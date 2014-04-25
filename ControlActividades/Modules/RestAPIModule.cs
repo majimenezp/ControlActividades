@@ -82,8 +82,9 @@ namespace ControlActividades.Modules
 
         private Task CreateUpdateComment(ComentarioActividad comment)
         {
+            string horas = comment.horas.ToString();
             return Task.Run(() => {
-                DAL.Instance.UpdateComment(comment.id, comment.comment);
+                DAL.Instance.UpdateComment(comment.id, comment.comment, horas);
             });
         }
 

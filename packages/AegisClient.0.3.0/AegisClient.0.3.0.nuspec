@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>AegisClient</id>
+    <version>0.3.0</version>
+    <title>Aegis client</title>
+    <authors>Cotemar</authors>
+    <owners>Cotemar</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Cliente para acceso al esquema de seguridad Aegis</description>
+    <summary>Cliente para acceso al esquema de seguridad Aegis de Cotemar</summary>
+    <releaseNotes>Metodos para eliminar información adicional</releaseNotes>
+    <tags>seguridad</tags>
+    <dependencies>
+      <dependency id="protobuf-net" />
+      <dependency id="clrzmq" version="2.2.3" />
+    </dependencies>
+    <references>
+      <reference file="AegisClient.dll" />
+    </references>
+  </metadata>
+</package>

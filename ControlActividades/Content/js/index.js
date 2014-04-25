@@ -55,7 +55,7 @@ function createCalendar() {
                 title: "Comentario",
                 html:true,
                 container: "#popups",
-                content: "<textarea class='comment' cols='4' rows='3'>"+event.comment+"</textarea><button class='btn btn-primary saveComment' onclick='saveComment(this," + event.id + ")'>Guardar</button>",
+                content: "<textarea class='comment' cols='4' rows='3'>" + event.comment + "</textarea><label>Horas Actividad</label><textarea class='horas' cols='4' rows='1'>" + event.horas + "</textarea><button class='btn btn-primary saveComment' onclick='saveComment(this," + event.id + ")'>Guardar</button>",
             });
             element.prepend("<a class='close' href='#' onclick='removeEvent(" + event.id + ");'>&times;</a>");
         },
@@ -65,8 +65,9 @@ function createCalendar() {
 
 function saveComment(self, eventId) {
     var comment = $(self.parentElement).find(".comment").val();
+    var horas = $(self.parentElement).find(".horas").val();
     if (comment.length > 0) {
-        $.post(currentUrl+"comentario",{id:eventId,comment:comment});
+        $.post(currentUrl+"comentario",{id:eventId,comment:comment, horas:horas});
     }
     $("#event"+eventId).popover("hide");
 }

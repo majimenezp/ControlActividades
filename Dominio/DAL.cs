@@ -279,15 +279,16 @@ namespace Dominio
             }
         }
 
-        public void UpdateComment(int activityId, string comment)
+        public void UpdateComment(int activityId, string comment, string horas)
         {
             using (var sesion = this.currentSession.OpenSession())
             {
                 using (var trans = sesion.BeginTransaction())
                 {
-                    var query=sesion.CreateQuery("update from Actividad set Comentario=:comment where Id=:id")
+                    var query = sesion.CreateQuery("update from Actividad set Comentario=:comment, Horas=:horas where Id=:id")
                         .SetParameter("id", activityId)
-                        .SetParameter("comment", comment);
+                        .SetParameter("comment", comment)
+                        .SetParameter("horas", horas);
                     try
                     {
                         query.ExecuteUpdate();

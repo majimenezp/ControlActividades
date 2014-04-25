@@ -13,5 +13,6 @@ namespace Entidades
         public virtual Proyecto Proyecto { get; set; }
         public virtual Usuario Usuario { get; set; }
         public virtual string Comentario { get; set; }
+        public virtual string Horas { get; set; }
     }
 }

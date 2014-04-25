@@ -9,5 +9,6 @@ namespace ControlActividades.Entities
     {
         public int id { get; set; }
         public string comment { get; set; }
+        public string horas { get; set; }
     }
 }

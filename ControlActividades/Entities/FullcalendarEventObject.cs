@@ -12,6 +12,7 @@ namespace ControlActividades.Entities
         public bool allDay { get; set; }
         public string start { get; set; }
         public string comment { get; set; }
+        public string horas { get; set; }
 
         public FullcalendarEventObject()
         {
@@ -20,6 +21,7 @@ namespace ControlActividades.Entities
             this.allDay = true;
             this.start = DateTime.Now.ToString("yyyy-MM-dd");
             this.comment = string.Empty;
+            this.horas = string.Empty;
         }
         public FullcalendarEventObject(Entidades.Actividad actividad)
         {
@@ -28,6 +30,7 @@ namespace ControlActividades.Entities
             this.allDay = true;
             this.start = actividad.Fecha.ToString("yyyy-MM-dd");
             this.comment = actividad.Comentario != null ? actividad.Comentario : string.Empty;
+            this.horas = actividad.Horas ?? string.Empty;
         }
         internal static FullcalendarEventObject[] ConvertActividades(Entidades.Actividad[] actividades)
         {
